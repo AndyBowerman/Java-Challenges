@@ -23,6 +23,8 @@ public class Math {
      * - PI is a double and should be set to 3.141592653589793 by default
      */
 
+    private double PI = 3.141592653589793;
+
     /**
      * Create getters and setters for the fields above.
      *
@@ -36,6 +38,15 @@ public class Math {
      * setPI should make sure the incoming number is between 3.1 and 3.2
      * If it isn't it should not update the PI field
      */
+    public double getPI() {
+        return PI;
+    }
+
+    public void setPI(double PI) {
+        if(PI > 3.1 && PI < 3.2) {
+            this.PI = PI;
+        }
+    }
 
     /**
      * Complete the min method
@@ -53,6 +64,10 @@ public class Math {
      * @return double The smaller of the two numbers
      */
 
+    public double min(double num1, double num2) {
+        return num1 > num2 ? num2 : num1;
+    }
+
     /**
      * Complete the max method
      *
@@ -68,6 +83,10 @@ public class Math {
      * @return double The larger of the two numbers
      */
 
+    public double max(double num1, double num2) {
+        return num1 < num2 ? num2 : num1;
+    }
+
     /**
      * Complete the calculateCircleArea method
      *
@@ -76,13 +95,17 @@ public class Math {
      * - return a double
      * - be called calculateCircleArea
      *
-     * It takes a given radius and uses the PI field to calculate the are of the circle
+     * It takes a given radius and uses the PI field to calculate the area of the circle
      *
-     * If the radius is less than or equal to 0 it shoudl return -1
+     * If the radius is less than or equal to 0 it should return -1
      *
      * @param radius The radius of the circle
      * @return double The area of the circle
      */
+
+    public double calculateCircleArea(double radius) {
+        return radius > 0 ? (radius*radius) * PI : -1;
+    }
 
     /**
      * Complete the pow method
@@ -103,4 +126,13 @@ public class Math {
      * @return double The larger of the two numbers
      */
 
+    public double pow(int number, int power) {
+        int i = 1;
+        int result = 1;
+        while(i <= power) {
+            result *= number;
+            i++;
+        }
+        return result;
+    }
 }

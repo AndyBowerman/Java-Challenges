@@ -17,34 +17,39 @@ package com.nology.classes_03;
 
 public class Calculator {
 
-    /**
-     * Create 3 private fields below:
-     * - hasBattery is a boolean set to true by default
-     * - firstInput is a double
-     * - secondInput is a double
-     */
+    private boolean hasBattery;
+    private double firstInput;
+    private double secondInput;
 
-    /**
-     * Create a constructor below to initialize the class and the data to the fields above.
-     * hasBattery should be set to true by default and is not needed in the constructor
-     */
+    public Calculator(double firstInput, double secondInput) {
+        this.hasBattery = true;
+        this.firstInput = firstInput;
+        this.secondInput = secondInput;
+    }
 
-    /**
-     * Create getters and setters for the fields above.
-     *
-     * They will need to be named:
-     * - getHasBattery
-     * - setHasBattery
-     * - getFirstInput
-     * - setFirstInput
-     * - getSecondInput
-     * - setSecondInput
-     *
-     * Each getter gets the corresponding private field.
-     * Each setter sets the corresponding private field. It will need parameters to accept a value to then set to the
-     * field.
-     *
-     */
+    public boolean getHasBattery() {
+        return hasBattery;
+    }
+
+    public void setHasBattery(boolean hasBattery) {
+        this.hasBattery = hasBattery;
+    }
+
+    public double getFirstInput() {
+        return firstInput;
+    }
+
+    public void setFirstInput(double firstInput) {
+        this.firstInput = firstInput;
+    }
+
+    public double getSecondInput() {
+        return secondInput;
+    }
+
+    public void setSecondInput(double secondInput) {
+        this.secondInput = secondInput;
+    }
 
     /**
      * Create a calculateAddition method below
@@ -61,6 +66,10 @@ public class Calculator {
      * @return double result of firstInput + secondInput
      */
 
+    public double calculateAddition() {
+        return hasBattery ? firstInput + secondInput : -1;
+    }
+
     /**
      * Create a calculateDivision method below
      *
@@ -76,4 +85,16 @@ public class Calculator {
      *
      * @return double result of firstInput / secondInput
      */
+
+    public double calculateDivision() {
+        if(hasBattery) {
+            if(secondInput != 0) {
+                return firstInput / secondInput;
+            } else {
+                return 0;
+            }
+        } else {
+            return -1;
+        }
+    }
 }
